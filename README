@@ -1,0 +1,8 @@
+Author: Karen Cristine Goncalves dos Santos
+Year: 2025
+
+Scripts for read quality control, assembly, expression quantification, annotation, and report of transcriptomes.
+
+Annotation performed with uniprot_sprot realease 2025_01; Pfam, EggNOG and BUSCO datasets downloaded in January 2025; RADIANT and DOGMA datasets downloaded in August 2025.
+
+Datasets published in Zenodo under the DOI 10.5281/zenodo.17058659).
