@@ -38,6 +38,7 @@ deap==1.4.1
 debugpy==1.6.7.post1
 decorator==5.1.1
 defusedxml==0.7.1
+dogma==1.0.2
 dnspython==2.4.2
 ecdsa==0.18.0
 entrypoints==0.4
@@ -138,19 +139,22 @@ pip install -r requirements.txt
 
 
 ##mkdir -p ~/busco_downloads/lineages
-#(cd ~/busco_downloads/lineages
+#cd ~/busco_downloads/lineages
 #wget https://busco-data.ezlab.org/v5/data/lineages/liliopsida_odb10.2024-01-08.tar.gz
-#tar -xvf liliopsida_odb10.2024-01-08.tar.gz)
+#tar -xvf liliopsida_odb10.2024-01-08.tar.gz
 
 #DATA_DIR=~/trinotate_data
 #
 #export EGGNOG_DATA_DIR=${DATA_DIR}
 #
-#cd $SCRATCH/${SPECIES}
-#
 #Trinotate --db ${DATA_DIR}/Trinotate.sqlite\
 # --create\
 # --trinotate_data_dir ${DATA_DIR}
+#
+#cd ~/trinotate_data
+#wget https://domainworld.uni-muenster.de/public-data/DOGMA/core-sets/DOGMA_v3.8.37.3/pfam37.3.tbz
+#tar xjf pfam37.3.tbz)
+
 deactivate
 
 
