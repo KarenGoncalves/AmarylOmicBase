@@ -3,6 +3,7 @@ SPECIES_DIR= # full path
 ASSEMBLY=
 GENE_TRANS_MAP=
 THREADS=2 # inscrease if necessary
+SCRIPTS_DIR=Amaryllidoideae_transcriptomes # Path to scripts
 
 ############### samples_file.txt is a file with 4 columns:
 #### sample_name replicate_name /FULL/PATH/TO/READ_1.fastq.gz /FULL/PATH/TO/READ_2.fastq.gz
@@ -39,9 +40,10 @@ $TRINITY_HOME/util/abundance_estimates_to_matrix.pl\
 
 
 # Get list of expressed isoforms (at least one read count in the whole experiment
-Rscript ~/annotation_scripts/exclude_non_expressed_isoforms.R\
- $GENE_TRANS_MAPDIR/kallisto/\
+Rscript $SCRIPTS_DIR/exclude_non_expressed_isoforms.R\
+ $SPECIES_DIR/kallisto/\
  .isoform.counts.matrix\
  _filtered_isoforms\
  kallisto
 
+Rscript $SCRIPTS_DIR/get_mapping_summary.R
