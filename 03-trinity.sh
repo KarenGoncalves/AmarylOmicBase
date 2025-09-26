@@ -1,5 +1,4 @@
-# Usage:
-# sh 03-trinity.sh SPECIES ACRONYM TIME MEMORY OUTPUT_SCRIPT
+#!/bin/sh
 
 ACRONYM= # an acronym to identificate the species by
 SPECIES= # Species name (Only letters, numbers and _)
