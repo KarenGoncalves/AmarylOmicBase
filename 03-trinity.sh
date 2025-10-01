@@ -5,6 +5,7 @@ SPECIES= # Species name (Only letters, numbers and _)
 SPECIES_DIR=
 MAXMEM=200 # 200G of memory by default, increase if necessary
 THREADS=2 # inscrease if necessary
+TRINITY_HOME= # where trinity is installed 
 
 ############### samples_file.txt is a file with 4 columns:
 #### sample_name replicate_name /FULL/PATH/TO/READ_1.fastq.gz /FULL/PATH/TO/READ_2.fastq.gz
