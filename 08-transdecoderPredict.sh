@@ -6,6 +6,7 @@ SPECIES_DIR=
 ASSEMBLY=
 TrinotatePFAM=
 blastp6_out=
+TRINOTATE_HOME= # where trinotate is installed 
 
 source ~/trinotateAnnotation/bin/activate
 
