@@ -4,6 +4,8 @@ ASSEMBLY=
 GENE_TRANS_MAP=
 THREADS=2 # inscrease if necessary
 SCRIPTS_DIR=Amaryllidoideae_transcriptomes # Path to scripts
+TRINITY_HOME= # where trinity is installed 
+
 
 ############### samples_file.txt is a file with 4 columns:
 #### sample_name replicate_name /FULL/PATH/TO/READ_1.fastq.gz /FULL/PATH/TO/READ_2.fastq.gz
