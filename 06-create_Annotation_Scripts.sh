@@ -163,8 +163,8 @@ cd ${outDir}
 
 echo Starting tmhmm
 
-tmhmm --short <\\
-  ${PredictedPep} >\\
+tmhmm --short <\
+  ${PredictedPep} >\
   ${outDir}/$(basename $PredictedPep)_tmhmm.out
 
 echo Finished tmhmm
