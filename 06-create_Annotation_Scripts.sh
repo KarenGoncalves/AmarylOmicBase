@@ -49,6 +49,7 @@ createScript() {
     echo "trinotateDIR = $trinotateDIR"
     echo "outputDIR = $outDir"
 
+    for tool in dogma blastp hmm emapper signalP tmhmm infernal; do
     # Threads
     if [[ $tool == "dogma" ]]; then
         threads=4
@@ -67,14 +68,14 @@ THREADS=$threads
 cd ${outDir}
 
 radiant -i $assembly \\
-        -d ./ \\
+        -d ${trinotateDIR} \\
         -o ./Radiant.out \\
         --translate;
 		
 dogma.py transcriptome \\
         -a ./Radiant.out \\
         -o ./dogma.out \\
-        -d $trinotate_dir/pfam37.3/reference_sets \\
+        -d $trinotate_dir/reference_sets \\
         --reference_transcriptomes monocots
 echo Finished radiant and dogma"
     }
@@ -115,7 +116,7 @@ blastp -query $longOrfsPep \\
       -num_threads \$THREADS \\
       -max_target_seqs 1 \\
       -outfmt '6' \\
-      > ${outDir}/$(basename $longOrfsPep)_${1}.out
+      > ${outDir}/$(basename $longOrfsPep)_blastp.out
 	  
 echo Finished blastp with $(basename $longOrfsPep)"
     }
@@ -152,21 +153,21 @@ emapper.py -i $PredictedPep \\
            -o ${outDir}/eggnog_mapper"
     }
 
-## TMHMM
+## tmhmm
 
-        TMHMM() {
+        tmhmm() {
             echo "#!/bin/sh
 cd ${outDir}
 
 # Requieres tmhmm/2.0
 
-echo Starting TMHMM
+echo Starting tmhmm
 
 tmhmm --short <\\
   ${PredictedPep} >\\
   ${outDir}/$(basename $PredictedPep)_tmhmm.out
 
-echo Finished TMHMM
+echo Finished tmhmm
 "
     }
 
@@ -210,6 +211,7 @@ Trinotate --db ../Trinotate.sqlite \\
         dogma | blastp | hmm | busco)     		${tool} > ${logDIR}/../scripts/07-${tool}.sh ;;
         tmhmm | signalP | emapper | infernal)	${tool} > ${logDIR}/../scripts/09-${tool}.sh ;;
     esac
+done
 }
 
 ################################################################################
