@@ -48,4 +48,25 @@ Rscript $SCRIPTS_DIR/exclude_non_expressed_isoforms.R\
  _filtered_isoforms\
  kallisto
 
+# Install BiocManager and then run BiocManager::install("Biostrings") before running the code below
+R --no-save --vanilla -e "
+library(magrittr); library(dplyr); library(readr); library(Biostrings)
+keep_transcripts = read_delim(
+        '$SPECIES_DIR/kallisto/${SPECIES}_kallisto_filtered_isoforms',
+        delim='\t', col_names='isoforms')[-1,] %>% unlist
+        
+transcriptome = readDNAStringSet('${ASSEMBLY}', format='fasta')
+
+list_transcripts =
+ data.frame(big_names = names(transcriptome)) %>%
+ mutate(isoforms = gsub(' .+', '', big_names)) %>%
+ filter(isoforms %in% keep_transcripts) %>% pull(big_names)
+
+writeXStringSet(
+        x = transcriptome[list_transcripts],
+        filepath = '$SPECIES_DIR/$SPECIES.fasta',
+        append=F, width=50000
+        )
+"
+
 Rscript $SCRIPTS_DIR/get_mapping_summary.R
