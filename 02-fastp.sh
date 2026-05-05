@@ -23,23 +23,19 @@ MYREADS=($(ls $PWD/RAW_DATA/${sample_info[0]}*))
 if [[ ${sample_info[2]} == "PE" ]]; then
 	MYREAD1=${MYREADS[0]}
 	MYREAD2=${MYREADS[1]}
-	MYCLEANREAD1=$PWD/clean_reads/${sample_info[0]}_1.fastq
+	MYCLEANREAD1=$PWD/clean_reads/${sample_info[0]}_1.fastq.gz
 	MYCLEANREAD2=${MYCLEANREAD1/_1/_2}
 else
 	MYREAD1=${MYREADS}
-        MYCLEANREAD1=$PWD/clean_reads/${sample_info[0]}.fastq
+        MYCLEANREAD1=$PWD/clean_reads/${sample_info[0]}.fastq.gz
 fi
 
 reportName=$PWD/fastpReports/${sample_info[0]}
 
-if [[ ${sample_info[2]} == "SE" && ${sample_info[3]} == "Illumina" ]]; then
+if [[ ${sample_info[2]} == "SE" ]]; then
 	analysisType=0
-else if [[ ${sample_info[2]} == "PE" && ${sample_info[3]} == "Illumina" ]]; then
+else if [[ ${sample_info[2]} == "PE" ]]; then
 	analysisType=1
-else if [[ ${sample_info[2]} == "SE" && ${sample_info[3]} == "DNB" ]]; then
-	analysisType=2
-else if [[ ${sample_info[2]} == "PE" && ${sample_info[3]} == "DNB" ]]; then
-	analysisType=3
 else
 	analysisType=Unknown
 fi	
@@ -50,12 +46,13 @@ case $analysisType in
 	0)
 		fastp -i ${MYREAD1}\
 		 -o ${MYCLEANREAD1}\
+		 --adapter_fasta $PWD/metadata/adaptors_univec.fasta\
 		 --qualified_quality_phred 20\
 		 --unqualified_percent_limit 30\
 		 --cut_front --cut_front_window_size 5\
 		 --cut_right --cut_right_window_size 4 --cut_right_mean_quality 15\
 		 --length_required ${length_required}\
-		 --json $PWD/fastpReports/$reportName.json\
+		 --json $reportName.json\
 		 --thread ${THREADS}
 		;;
 	1)
@@ -63,39 +60,13 @@ case $analysisType in
 		 -I ${MYREAD2}\
 		 -o ${MYCLEANREAD1}\
 		 -O ${MYCLEANREAD2}\
+		 --adapter_fasta $PWD/metadata/adaptors_univec.fasta\
 		 --qualified_quality_phred 20\
 		 --unqualified_percent_limit 30\
 		 --cut_front --cut_front_window_size 5\
 		 --cut_right --cut_right_window_size 4 --cut_right_mean_quality 15\
 		 --length_required ${length_required}\
-		 --json $PWD/fastpReports/$reportName.json\
-		 --thread ${THREADS}
-		;;
-	2)
-		fastp -i ${MYREAD1}\
-		 -o ${MYCLEANREAD1}\
-		 --adapter_fasta $HOME/annotation_scripts/adaptors_DNBSEQ-T7.fasta\
-		 --qualified_quality_phred 20\
-		 --unqualified_percent_limit 30\
-		 --cut_front --cut_front_window_size 5\
-		 --cut_right --cut_right_window_size 4 --cut_right_mean_quality 15\
-		 --length_required ${length_required}\
-		 --json $PWD/fastpReports/$reportName.json\
-		 --thread ${THREADS}
-		;;
-
-	3)
-		fastp -i ${MYREAD1}\
-		 -I ${MYREAD2}\
-		 -o ${MYCLEANREAD1}\
-		 -O ${MYCLEANREAD2}\
-		 --adapter_fasta $HOME/annotation_scripts/adaptors_DNBSEQ-T7.fasta\
-		 --qualified_quality_phred 20\
-		 --unqualified_percent_limit 30\
-		 --cut_front --cut_front_window_size 5\
-		 --cut_right --cut_right_window_size 4 --cut_right_mean_quality 15\
-		 --length_required ${length_required}\
-		 --json $PWD/fastpReports/$reportName.json\
+		 --json $reportName.json\
 		 --thread ${THREADS}
 		;;
 	"Unknown" )
