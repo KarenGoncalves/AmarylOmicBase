@@ -46,7 +46,7 @@ case $analysisType in
 	0)
 		fastp -i ${MYREAD1}\
 		 -o ${MYCLEANREAD1}\
-		 --adapter_fasta $PWD/metadata/adaptors_univec.fasta\
+		 --adapter_fasta $PWD/metadata/adapters_univec.fasta\
 		 --qualified_quality_phred 20\
 		 --unqualified_percent_limit 30\
 		 --cut_front --cut_front_window_size 5\
@@ -60,7 +60,7 @@ case $analysisType in
 		 -I ${MYREAD2}\
 		 -o ${MYCLEANREAD1}\
 		 -O ${MYCLEANREAD2}\
-		 --adapter_fasta $PWD/metadata/adaptors_univec.fasta\
+		 --adapter_fasta $PWD/metadata/adapters_univec.fasta\
 		 --qualified_quality_phred 20\
 		 --unqualified_percent_limit 30\
 		 --cut_front --cut_front_window_size 5\
