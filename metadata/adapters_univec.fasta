@@ -1,0 +1,36 @@
+>gnl|uv|NGB02000.1:1-36 Oxford Nanopore Technologies Rapid Adapter (RA) Ligation Adapter top (LA) Native Adaptor top (NA) polyT masked
+NNTTTTTTCCTGTACTTCGTTCAGTTACGTATTGCT
+>gnl|uv|NGB02001.1:1-27 Oxford Nanopore Technologies Ligation Adapter bottom (LA)
+GCAATACGTAACTGAACGAAGTACAGG
+>gnl|uv|NGB02002.1:1-22 Oxford Nanopore Technologies Native Adapter bottom (NA)
+ACGTAACTGAACGAAGTACAGG
+>gnl|uv|NGB02003.1:1-28 Oxford Nanopore Technologies cDNA-PCR RT primer (RTP)
+CTTGCCTGTCGCTCTATCTTCAGAGGAG
+>gnl|uv|NGB02004.1:1-45 Oxford Nanopore Technologies cDNA RT Adapter (CRTA)
+CTTGCGGGCGGCGGACTCTCCTCTGAAGATAGAGCGACAGGCAAG
+>gnl|uv|NGB02006.1:1-61 Oxford Nanopore Technologies cDNA primer forward sequence (cPRM)
+ATCGCCTACCGTGACAAGAAAGTTGTCGGTGTCTTTGTGACTTGCCTGTCGCTCTATCTTC
+>gnl|uv|NGB02007.1:1-61 Oxford Nanopore Technologies cDNA primer reverse sequence (cPRM)
+ATCGCCTACCGTGACAAGAAAGTTGTCGGTGTCTTTGTGTTTCTGTTGGTGCTGATATTGC
+>gnl|uv|NGB03000.1:1-26 PacBio ULI gDNA amplification adapter
+AAGCAGTGGTATCAACGCAGAGTACT
+>gnl|uv|NGB04000.1:1-19 Illumina Nextera-Illumina PCR Kit Adapter Read 1-Read 2
+CTGTCTCTTATACACATCT
+>gnl|uv|NGB04001.1:1-16 Illumina DNA PCR-Free Tagmentation Adapter
+ATGTGTATAAGAGACA
+>gnl|uv|NGB04002.1:1-19 Nextera Mate Pair Adapter
+AGATGTGTATAAGAGACAG
+>gnl|uv|NGB04003.1:1-33 Illumina TruSeq UD/CD Adapter Trimming Read 1
+AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
+>gnl|uv|NGB04004.1:1-33 Illumina TruSeq UD/CD Adapter Trimming Read 2
+AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
+>gnl|uv|NGB04005.1:1-21 Illumina TruSeq Small RNA Adapter Trimming Read
+TGGAATTCTCGGGTGCCAAGG
+>gnl|uv|NGB04006.1:1-21 Illumina TruSeq RNA 3' Adapter RA3
+TGGAATTCTCGGGTGCCAAGG
+>gnl|uv|NGB04007.1:1-71 Illumina TruSeq Synthetic Long-Read DNA Adapter
+CCGGTTCTTCCCTGCCGAACCCTATCTTCGTCGGCAGCGTCAGATGTGTATAAGAGACAGTACGCTTGCAT
+>gnl|uv|NGB05000.1:1-32 MGI DNBSEQ dual barcode adaptor forward
+AAGTCGGAGGCCAAGCGGTCTTAGGAAGACAA
+>gnl|uv|NGB05001.1:1-42 MGI DNBSEQ dual barcode adaptor reverse
+AAGTCGGATCGTAGCCATGTCGTTCTGTGAGCCAAGGAGTTG
